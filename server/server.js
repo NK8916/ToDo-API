@@ -8,6 +8,8 @@ var {Users}=require('./models/User');
 var app=express();
 app.use(bodyParser.json());
 
+var port=process.env.PORT||3000;
+
 app.post('/todos',(req,res)=>{
     var todo=new ToDo({
         text:req.body.text
@@ -49,7 +51,7 @@ app.get('/todos/:id',(req,res)=>{
     })
 })
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("Listening");
 })
 
